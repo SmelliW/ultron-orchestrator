@@ -1,0 +1,45 @@
+{
+  "planner": {
+    "enabled_skills": [
+      "make-plan",
+      "writing-plans",
+      "executing-plans",
+      "subagent-driven-development"
+    ],
+    "capabilities": [
+      "Generate progressive implementation plans from natural language",
+      "Break down complex tasks into phased execution steps",
+      "Create documentation discovery and dependency mapping"
+    ]
+  },
+  "executor": {
+    "enabled_skills": [
+      "do",
+      "systematic-debugging",
+      "verification-before-completion",
+      "using-git-worktrees"
+    ],
+    "capabilities": [
+      "Execute implementation plans with subagents",
+      "Debug issues based on historical patterns",
+      "Verify correctness before marking complete",
+      "Isolate working trees for feature development"
+    ]
+  },
+  "memory_manager": {
+    "enabled_skills": [
+      "mem-search",
+      "mem-setup",
+      "backup-setup",
+      "cloud-sync",
+      "knowledge-agent",
+      "community-sweep"
+    ],
+    "capabilities": [
+      "Search persistent observations from previous sessions",
+      "Manage memory database backups and restoration",
+      "Create AI-powered knowledge bases from memories",
+      "Track and analyze community PRs/issues"
+    ]
+  }
+}

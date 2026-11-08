@@ -1,0 +1,10 @@
+# ULTRON Git Attributes - Encoding Settings for Proper Files
+
+# Text files with special characters (UTF-8)
+*.md text=euc-kr;utf-8, index=auto
+*.json application/json
+*.ts text
+*.sh bash
+
+# Ignores line endings changes to prevent unnecessary diffs
+* text=auto,eol=lf,crlf=auto
