@@ -2,7 +2,7 @@
  * ULTRON - JWT Token Generator for User Management API
  */
 
-import { jwtSign } from 'jsonwebtoken';
+import { sign as jwtSign } from 'jsonwebtoken';
 
 interface CreateUserOptions {
   email: string;

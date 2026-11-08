@@ -5,10 +5,10 @@
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "concurrently \"node --watch src/index.js\" \"npm run memory:update\"",
-    "start": "node dist/index.js",
+    "dev": "concurrently \"ts-node --watch --project typescriptconfig.json src/index.ts\" \"npm run memory:update\"",
+    "start": "node scripts/run-api.cjs",
     "memory:update": "node dist/memory_manager.js",
-    "build": "tsc",
+    "build": "npx tsc",
     "lint": "eslint src/",
     "test": "jest",
     "version:0.1.0": "npm version 0.1.0 --no-git-tag-version && git commit -m 'v0.1.0: Initial Ultron release'\n\n",
@@ -18,16 +18,19 @@
     "@anthropic-ai/sdk": "^0.24.0",
     "@prisma/client": "^7.10.1",
     "@prisma/engines": "^7.10.1",
+    "cors": "^2.8.6",
     "dotenv": "^16.3.1",
     "express": "^5.3.0",
-    "prisma": "^8.0.0-rc.33"
+    "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
     "@types/node": "^20.10.4",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
+    "better-sqlite3": "^13.0.3",
     "concurrently": "^8.2.2",
     "eslint": "^8.56.0",
+    "prisma": "^8.0.0-rc.33",
     "ts-node": "^10.9.1",
     "typescript": "^5.3.3"
   },

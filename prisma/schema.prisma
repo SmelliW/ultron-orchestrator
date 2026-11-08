@@ -1,0 +1,39 @@
+// ULTRON - Database Schema (SQLite with Prisma)
+// Defines tables for API + Memory Manager persistence
+
+generator client {
+  provider = "sqlite"
+}
+
+datasource db {
+  provider = "sqlite"
+  url = "file:./ultron.db"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique @db.Text
+  password  String   // Hash stored in context field for JWT validation
+  firstName String?
+  lastName  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([email])
+}
+
+model Observation {
+  id        String   @id @default(uuid())
+  userId    String   @db.Text // Links to User for filtering
+  context   Json     // JSON object: request, task, phase, project metadata
+  summary   String   @db.Text NOT NULL
+
+  // Relationship to User - null if observation is from CLI/executor
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  timestamp String   @db.Text NOT NULL
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([createdAt])
+}

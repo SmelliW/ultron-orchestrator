@@ -1,8 +1,8 @@
 /**
- * Executor Engine - Using "do", "executing-plans" skills
+ * Executor Engine - Real implementation with skill integration
  */
 
-import { UltronAgent } from '../index';
+// No import needed - executor works standalone with execute tools directly
 
 export interface ExecutionResult {
   success: boolean;

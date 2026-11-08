@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Database files
+ultron.db
+*.sqlite
+*.sqlite3
+
+# Environment files (contain secrets)
+.env
+.env.local
+.env.*.local
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# Build artifacts
+build/
+coverage/
+.nyc_output/
+
+# Logs and temporary files
+logs/
+temp/
+*.log
+tmp/
+
+# Prisma
+prisma/migrations/*/migration.sql  # Exclude generated migrations
+prisma/schema.prisma               # Include schema in repo
+
+# Agent outputs
+*.output
+a9c89d2e*
+abd3e706*
+a0eccfd3*
+aced451d*
+
+# OS and editor files
+.DS_Store
+Thumbs.db

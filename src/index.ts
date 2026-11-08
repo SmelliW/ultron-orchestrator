@@ -7,6 +7,11 @@ import { PlannerEngine } from './planner/planner';
 import { ExecutorEngine } from './executor/executor';
 import { MemoryManager } from './memory_manager/memory_manager';
 
+// Initialize components with actual skill integration
+console.log('🤖 Ultron/Jarvis Agent Initialized');
+console.log(`Brain: qwen3.5:4b`);
+console.log(`Skills: make-plan, writing-plans, executing-plans, mem-search`);
+
 class UltronAgent {
   private planner: PlannerEngine;
   private executor: ExecutorEngine;
