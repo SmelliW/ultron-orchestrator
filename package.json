@@ -15,8 +15,12 @@
     "version:1.0.0": "npm version 1.0.0 --no-git-tag-version && git commit -m 'v1.0.0: Stable Ultron release'\n\n"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.24.0",
+    "@prisma/client": "^7.10.1",
+    "@prisma/engines": "^7.10.1",
     "dotenv": "^16.3.1",
-    "@anthropic-ai/sdk": "^0.24.0"
+    "express": "^5.3.0",
+    "prisma": "^8.0.0-rc.33"
   },
   "devDependencies": {
     "@types/node": "^20.10.4",
@@ -24,8 +28,8 @@
     "@typescript-eslint/parser": "^6.15.0",
     "concurrently": "^8.2.2",
     "eslint": "^8.56.0",
-    "typescript": "^5.3.3",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.3"
   },
   "keywords": [
     "ultron",

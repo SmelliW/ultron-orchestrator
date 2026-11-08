@@ -1,0 +1,20 @@
+// ULTRON - User Management API Database Schema (SQLite)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url = environment("DATABASE_URL") || file("../src/api/database.ts")
+}
+
+model User {
+  id          Int             @id @default(autoincrement())
+  email       String         @unique
+  passwordHash String
+  firstName   String?
+  lastName    String?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt()
+}
