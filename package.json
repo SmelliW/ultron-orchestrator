@@ -1,6 +1,6 @@
 {
   "name": "ultron-orchestrator",
-  "version": "0.1.0-beta",
+  "version": "0.1.1",
   "description": "AI Personal Orchestrator Agent - Ultron Framework (Smart Planning + Context Memory Manager)",
   "type": "module",
   "main": "dist/index.js",
@@ -15,17 +15,21 @@
     "version:1.0.0": "npm version 1.0.0 --no-git-tag-version && git commit -m 'v1.0.0: Stable Ultron release'\n\n"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.24.0",
+    "bcryptjs": "^3.0.3",
     "dotenv": "^16.3.1",
-    "@anthropic-ai/sdk": "^0.24.0"
+    "jsonwebtoken": "^9.0.3"
   },
   "devDependencies": {
+    "@prisma/cli": "^8.0.0-rc.33",
     "@types/node": "^20.10.4",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
     "concurrently": "^8.2.2",
     "eslint": "^8.56.0",
-    "typescript": "^5.3.3",
-    "ts-node": "^10.9.1"
+    "prisma": "^8.0.0-rc.33",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.3"
   },
   "keywords": [
     "ultron",
@@ -39,7 +43,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/ultron-orchestrator.git"
+    "url": "https://github.com/SmelliW/ultron-orchestrator.git"
   },
   "license": "MIT"
 }

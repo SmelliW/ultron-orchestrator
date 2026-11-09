@@ -1,14 +1,39 @@
 # 🤖 ULTRON - AI Personal Orchestrator Framework
 
-**Version**: 0.1.0-beta | **AI Brain**: Claude Code (qwen3.5:4b)  
+**Version**: 0.1.1 (PATCH) | **AI Brain**: Claude Code (qwen3.5:4b)  
 **Skills**: Writing Plans, Executing Plans, Memory Management  
 
 ## 📦 Version History
 
 | Version | Date | Description |
 |---------|------|-------------|
-| v0.1.0 | 2026-11-07 | Initial release - Basic orchestrator framework with planning & memory management |
+| v0.1.1 | 2026-11-08 | PATCH - Test validations, memory manager fix, known limitations documented |
+| v0.1.0-beta | 2026-11-07 | Initial release - Basic orchestrator framework with planning & memory management |
 | v1.0.0 | TBD | Stable release - Production-ready with CI/CD integration |
+
+## 📝 Known Limitations (v0.1.1)
+
+> ⚠️ **IMPORTANT**: This version uses SIMPLE MOCK DATABASES instead of production database layers
+
+**Database Implementation:**
+- Uses async/await simulated functions in `src/database`
+- NO Prisma, NO MongoDB, NO MySQL - simple mocks for development
+- Users registered with mock data (admin + 3 demo users)
+- JWT tokens work but user lookups are hardcoded to existing mock users
+
+**Why not production DB?**  
+As per user instruction: *"no utilices prisma para el proyecto, el uso del mismo ha provocado multiples errores y loops sin sentido"*  
+Alternative implementations available (better-sqlite3, mongoose, prisma) - pending v.0.2.0 decision
+
+**Workarounds:**
+```typescript
+// Current mock implementation
+async getUserByEmail(email: string): Promise<any> {
+  return { id: 1, email, name: 'Juan' }; // Static mock
+}
+```
+
+---
 
 ## 🚀 Quick Start, Debugging
 

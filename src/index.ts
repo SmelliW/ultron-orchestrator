@@ -7,7 +7,16 @@ import { PlannerEngine } from './planner/planner';
 import { ExecutorEngine } from './executor/executor';
 import { MemoryManager } from './memory_manager/memory_manager';
 
-class UltronAgent {
+export interface UltronAgentState {
+  planner: PlannerEngine;
+  executor: ExecutorEngine;
+  memory: MemoryManager;
+}
+
+/**
+ * Main orchestrator class for Ultron/Jarvis
+ */
+export class UltronAgent {
   private planner: PlannerEngine;
   private executor: ExecutorEngine;
   private memory: MemoryManager;
@@ -36,6 +45,7 @@ class UltronAgent {
       // STEP 3: Execute the plan phase by phase
       for (const phase of plan.phases) {
         console.log(`\n📋 Phase: ${phase.name}`);
+
         const result = await this.executor.executePhase(phase, userRequest);
 
         // STEP 4: Update memory with observation
@@ -52,6 +62,8 @@ class UltronAgent {
       }
 
       console.log('\n✅ Task completed successfully');
+
+      // STEP 5: Save final observation
       await this.memory.saveObservation({
         userId: 'user',
         context: { request: userRequest },
@@ -60,12 +72,14 @@ class UltronAgent {
       });
 
     } catch (error) {
-      console.error(`❌ Error in Ultron execution: ${error.message}`);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.error(`❌ Error in Ultron execution: ${errorMessage}`);
+
       // Save error for debugging detective dashboard
       await this.memory.saveObservation({
         userId: 'user',
         context: { request: userRequest },
-        summary: `Execution failed: ${error.message}`,
+        summary: `Execution failed: ${errorMessage}`,
         timestamp: new Date().toISOString()
       });
     }
@@ -74,7 +88,7 @@ class UltronAgent {
   /**
    * Get current state of orchestrator
    */
-  getState(): Record<string, any> {
+  getState(): UltronAgentState {
     return {
       plannerState: this.planner.getState(),
       executorState: this.executor.getState(),
@@ -90,6 +104,3 @@ class UltronAgent {
     console.log('\n👋 Ultron/Jarvis shut down');
   }
 }
-
-// Export for use with CLI or other systems
-export { UltronAgent };

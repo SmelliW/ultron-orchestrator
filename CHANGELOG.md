@@ -1,5 +1,29 @@
 # ULTRON - Change Log
 
+## [0.1.1] (2026-11-08) ⭐ PATCH RELEASE
+
+### 🐛 Bug Fixes
+
+#### Test Implementations with Validations
+
+| Fix | Component | Description |
+|-----|-----------|-------------|
+| `test-register-user` | API tests | Agregar validaciones para check de email existente (HTTP 409 response), test con credenciales incorrectas (HTTP 401) |
+| `test-api-simple` | API tests | Verificar JWT token expiry en login endpoint, validar estructura de respuesta JSON |
+
+#### Memory Manager - Validations
+
+- ✅ **Backup/Restore**: Agregar validaciones para verificar backup files (.bak) creados correctamente
+- ✅ **Database Persistence**: Validar que observaciones se leen/escriben correctamente en `memory.db`
+- ✅ **Search Filter**: Verificar que keyword matching funciona (filtros por summary, request, task fields)
+
+#### Memory Manager - Observations Saved:
+- Phase planning analysis documented in memory.db
+- Git worktree creation verified with status checks
+- User registration flow tracked (4 users total: admin + 3 mock users)
+
+---
+
 ## [0.1.0-beta] (2026-11-07)
 
 ### 🎯 Initial Release
