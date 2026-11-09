@@ -1,0 +1,32 @@
+// Ultron ORM Schema - SQLite Local DB
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url = "file:./memory.db"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+// JWT Token Storage para sesiones activas
+model Token {
+  id        Int         @id @default(autoincrement())
+  user      User        @relation(fields: [userId], references: ["id"])
+  userId    Int?
+  expiresAt DateTime    // Token expiry time
+  createdAt DateTime   @default(now())
+
+  @@unique([userId, expiresAt])
+  @@map("tokens")
+}

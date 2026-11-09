@@ -1,0 +1,2 @@
+- [PROJECT_STATE](PROJECT_STATE.md) — Consolidated project progress data from context recovery (NO PRISMA decision, executor status)
+- [TODO_V0.2.0](TODO_V0.2.0.md) — Original pending tasks - PRISMA REMOVED,.executor.ts updated with real exec()

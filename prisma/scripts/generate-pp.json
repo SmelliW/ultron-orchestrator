@@ -1,0 +1,23 @@
+{
+  "generator": {
+    "name": "client",
+    "provider": "prisma-client-js"
+  },
+  "datasources": [
+    {
+      "datasource": "db",
+      "databaseType": "sqlite",
+      "sourceDatabaseURI": "file:./dev.db",
+      "generatorName": "client",
+      "providerName": "prisma-client-js"
+    }
+  ],
+  "models": [
+    {
+      "model": "User",
+      "databaseType": "User",
+      "fields": [],
+      "index": []
+    }
+  ]
+}
